@@ -1,0 +1,150 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Dev challenge</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+      <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+      <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+      <link rel="stylesheet" href="css/main.css">
+      <link rel="stylesheet" href="css/sidebarEffects.css">
+
+      <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+  </head>
+  <body ng-app="dev-challenge" ng-cloak ng-init="login = false">
+    <span us-spinner="{radius:15, width:6, length:0}"></span>
+
+    <div id="st-container" class="st-container" ng-controller="CoreController as core">
+
+      <!-- content push wrapper -->
+      <div class="st-pusher">
+
+        <nav class="st-menu st-effect-7" id="menu-1" ng-controller="NewsController as news">
+          <!-- sidebar content -->
+          <h2 class="">Categories <span class="pull-right glyphicon glyphicon-filter"></span></h2>
+          <ul class="">
+            <li><a class="text-right" id="closeMenu"><span class="glyphicon glyphicon-remove-circle"></span></a></li>
+            <li><a href="#/" ng-class="news.articles.currentCategory == null ? 'active' : ''" ng-click="news.getPage(1, null);core.closeMenu();">All</a></li>
+            <li ng-repeat="category in news.categories">
+              <a href="#/" ng-class="news.articles.currentCategory == category.id ? 'active' : ''" ng-click="news.getPage(1, category.id);core.closeMenu();">{{ category.name }}</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="st-content"><!-- this is the wrapper for the content -->
+          <div class="st-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+            <!-- the content -->
+
+              <!--[if lt IE 8]>
+                  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+              <![endif]-->
+              <div>
+                <nav class="navbar navbar-inverse" role="navigation">
+                  <div class="fluid-container">
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="#">Dev challenge</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                      <form ng-init="loginToggle = false" class="navbar-form navbar-right" role="form">
+                        <button ng-click="loginToggle = !loginToggle" class="btn" ng-class="loginToggle ? 'btn-warning' : 'btn-success'">
+                          <span ng-show="loginToggle" class="glyphicon glyphicon glyphicon-remove-sign"></span>
+                          <span ng-hide="loginToggle" class="glyphicon glyphicon-plus-sign"></span>
+                        </button>
+                        <div ng-show="loginToggle" class="form-group">
+                          <input type="text" ng-model="user.username" placeholder="Username" class="form-control" />
+                        </div>
+                        <div ng-show="loginToggle" class="form-group">
+                          <input type="password" ng-model="user.password" placeholder="Password" class="form-control" />
+                        </div>
+                        <button ng-show="loginToggle" type="submit" class="btn btn-success" ng-click="login = true">Sign in</button>
+                      </form>
+                    </div><!--/.navbar-collapse -->
+                  </div>
+                </nav>
+
+                <!-- Main jumbotron for a primary marketing message or call to action -->
+                <div class="well login-box" ng-show="user.username.length">
+                  <h4>Hello {{user.username}}</h4>
+                  <p ng-hide="user.password.length">Please enter your username and password to sign in.</p>
+                  <p>Control the news using contextual links.</p>
+                </div>
+              </div>
+
+              <div class="container-fluid">
+                <!-- Main jumbotron for a primary marketing message or call to action -->
+                <div class="well red">
+                  <h1>News listing</h1>
+                  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur nec congue erat. Sed quis eros libero, a euismod nisl. </p>
+                  <div id="st-trigger-effects" class="column">
+                    <button class="btn btn-success" data-effect="st-effect-7">Categories  <span class="glyphicon glyphicon-filter"></span></button>
+                  </div>
+                </div>
+
+                <!-- angular templating -->
+                <!-- this is where content will be injected -->
+                <div ng-view></div>
+
+
+              </div> <!-- /container -->
+              <footer class="container-fluid well red">
+                <p>&copy; Company 2015</p>
+              </footer>
+          </div><!-- /st-content-inner -->
+        </div><!-- /st-content -->
+
+      </div><!-- /st-pusher -->
+
+    </div><!-- /st-container -->
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="bower_components/jquery-bridget/jquery.bridget.js"></script>
+    <script src="bower_components/get-style-property/get-style-property.js"></script>
+    <script src="bower_components/get-size/get-size.js"></script>
+    <script src="bower_components/eventEmitter/EventEmitter.js"></script>
+    <script src="bower_components/eventie/eventie.js"></script>
+    <script src="bower_components/doc-ready/doc-ready.js"></script>
+    <script src="bower_components/matches-selector/matches-selector.js"></script>
+    <script src="bower_components/fizzy-ui-utils/utils.js"></script>
+    <script src="bower_components/outlayer/item.js"></script>
+    <script src="bower_components/outlayer/outlayer.js"></script>
+    <script src="bower_components/imagesloaded/imagesloaded.js"></script>
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/masonry/dist/masonry.pkgd.min.js"></script>
+    <script src="bower_components/angular-masonry/angular-masonry.js"></script>
+
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+
+    <script src="bower_components/spin.js/spin.js"></script>
+    <script src="bower_components/angular-spinner/angular-spinner.min.js"></script>
+    <script src="bower_components/angular-loading-spinner/angular-loading-spinner.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+
+
+    <script src="js/app.js"></script>
+    <script src="js/app.config.js"></script>
+    <script src="js/NewsService.js"></script>
+    <script src="js/CoreController.js"></script>
+    <script src="js/NewsController.js"></script>
+    <script src="js/ArticleController.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/vendor/classie.js"></script>
+    <script src="js/vendor/sidebarEffects.js"></script>
+  </body>
+</html>

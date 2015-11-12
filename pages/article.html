@@ -1,0 +1,18 @@
+<div class="container article-container">
+  <h1>{{ article.article.data.title }}</h1>
+  <hr>
+  <div class="social">
+    <button class="details-button btn btn-success" role="button"><span class="glyphicon glyphicon-thumbs-up"></span> <span class="badge">42</span></button>
+    <button class="details-button btn btn-danger pull-right" role="button"><span class="glyphicon glyphicon-thumbs-down"></span> <span class="badge">2</span></button>
+  </div>
+  <div class="article-image-wrapper">
+    <img ng-src="{{ article.article.data.img }}" alt="{{ article.article.data.title }}" />
+  </div>
+  <div class="content-body well">
+    {{ article.article.data.body }}
+  </div>
+
+  <div class="actions">
+    <a href="#/" class="btn btn-info"><span class="glyphicon glyphicon-chevron-left"></span> Back to listing</a>
+  </div>
+</div>

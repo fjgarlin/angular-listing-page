@@ -1,0 +1,53 @@
+<nav ng-show="news.articles.pagination.total > 0" class="text-center">
+  <ul class="pagination pagination-sm">
+    <li ng-show="news.articles.pagination.current > 1">
+      <a aria-label="Previous" ng-click="news.getPage(news.articles.currentPage - 1, news.articles.currentCategory)">
+        <span class="glyphicon glyphicon-chevron-left"></span> <span aria-hidden="true">Prev</span>
+      </a>
+    </li>
+    <li class="active disabled"><a>Page {{ news.articles.pagination.current }}</a></li>
+    <li ng-show="news.articles.pagination.current < news.articles.pagination.total">
+      <a aria-label="Next" ng-click="news.getPage(news.articles.currentPage + 1, news.articles.currentCategory)">
+        <span aria-hidden="true">Next</span> <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </li>
+  </ul>
+  <hr>
+</nav>
+
+<!-- Example row of columns -->
+<div class="grid" masonry load-images="false">
+
+  <div class="masonry-brick grid-item col-sm-6 col-md-4 col-lg-3" ng-repeat="article in news.articles.data">
+    <a href="#/article/{{ article.id }}">
+      <div class="image-wrapper"><img class="cover-image" ng-src="{{ article.img }}" /></div>
+      <h2>{{ article.title }}</h2>
+      <p>
+        {{ article.body | limitTo: 150 }}{{article.body.length > 150 ? '...' : ''}}
+      </p>
+      <p>
+        <button class="details-button btn btn-success" role="button"><span class="glyphicon glyphicon-thumbs-up"></span> <span class="badge">42</span></button>
+        <button class="details-button btn btn-danger pull-right" role="button"><span class="glyphicon glyphicon-thumbs-down"></span> <span class="badge">2</span></button>
+      </p>
+    </a>
+  </div>
+
+</div>
+
+<div class="clearfix"></div>
+<nav ng-show="news.articles.data.length && news.articles.pagination.total > 0" class="text-center">
+  <hr>
+  <ul class="pagination pagination-sm">
+    <li ng-show="news.articles.pagination.current > 1">
+      <a aria-label="Previous" ng-click="news.getPage(news.articles.currentPage - 1, news.articles.currentCategory)">
+        <span class="glyphicon glyphicon-chevron-left"></span> <span aria-hidden="true">Prev</span>
+      </a>
+    </li>
+    <li class="active disabled"><a>Page {{ news.articles.pagination.current }}</a></li>
+    <li ng-show="news.articles.pagination.current < news.articles.pagination.total">
+      <a aria-label="Next" ng-click="news.getPage(news.articles.currentPage + 1, news.articles.currentCategory)">
+        <span aria-hidden="true">Next</span> <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </li>
+  </ul>
+</nav>

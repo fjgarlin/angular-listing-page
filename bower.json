@@ -1,0 +1,34 @@
+{
+  "name": "dev-challenge",
+  "authors": [
+    "Fran <fran@iedesign.co.uk>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.4.7",
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "masonry": "~3.3.2",
+    "jquery-bridget": "~1.1.0",
+    "angular-masonry": "~0.13.0",
+    "angular-resource": "~1.4.7",
+    "angular-loading-spinner": "~0.0.3",
+    "angular-route": "~1.4.7"
+  },
+  "resolutions": {
+    "angular": "1.4.7",
+    "isotope": "2.0.0"
+  }
+}

@@ -1,0 +1,129 @@
+body {
+
+}
+a {
+  cursor: pointer;
+}
+a:hover {
+  text-decoration: none;
+}
+.grid-item {
+  border: 1px solid lightgrey;
+  position: relative;
+  overflow:hidden
+}
+.grid-item:hover {
+  background: rgba(100, 100, 100, 0.1);
+  -webkit-box-shadow: inset 0px 0px 0px 8px rgba(100,100,100,0.5);
+  -moz-box-shadow: inset 0px 0px 0px 8px rgba(100,100,100,0.5);
+  box-shadow: inset 0px 0px 0px 8px rgba(100,100,100,0.5);
+}
+.image-wrapper {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  overflow: hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.grid-item .cover-image {
+  min-width:100%;
+  min-height:100%;
+  height:100%;
+  flex-shrink:0;
+  opacity: 0.05;
+  -webkit-transition: all 0.5s; /* Safari */
+  transition: all 0.5s;
+}
+.grid-item:hover .cover-image {
+  opacity: 0.95;
+}
+.grid-item .details-button {
+
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .grid-item {
+    width: 100%;
+  }
+  .grid-item .cover-image {
+    display: none;
+  }
+}
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+  z-index: auto;
+}
+
+.pagination {
+  margin: 10px 0;
+}
+nav > hr {
+  margin: 5px 0;
+}
+
+footer.well {
+  margin: 0;
+  margin-top: 15px;
+}
+footer.well.red {
+  border: none;
+}
+
+.article-image-wrapper img {
+  width: 100%;
+  border: 1px solid lightgrey;
+  padding: 5px;
+  margin-top: 15px;
+}
+
+.well,
+.btn,
+.navbar {
+  border-radius: 0;
+}
+
+.article-container {
+  border: 4px solid lightgrey;
+  padding-bottom: 15px;
+
+  -webkit-box-shadow: 0px 0px 21px 4px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 21px 4px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 21px 4px rgba(0,0,0,0.75);
+}
+
+.navbar-inverse {
+  background-color: #CA3333;
+  border-color: #CA3333;
+  background-image: -webkit-linear-gradient(top,#CA3333 0,#CA3333 100%);
+  background-image: -o-linear-gradient(top,#CA3333 0,#CA3333 100%);
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#CA3333),to(#CA3333));
+  background-image: linear-gradient(to bottom,#CA3333 0,#CA3333 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFCA3333', endColorstr='#FFCA3333', GradientType=0);
+}
+.navbar-inverse .navbar-brand {
+  color: white;
+}
+.well.red {
+  background-color: #CA3333;
+
+  background-image: -webkit-linear-gradient(top,#CA3333 0,#CA3333 100%);
+  background-image: -o-linear-gradient(top,#CA3333 0,#CA3333 100%);
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#CA3333),to(#CA3333));
+  background-image: linear-gradient(to bottom,#CA3333 0,#CA3333 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffCA3333', endColorstr='#ffCA3333', GradientType=0);
+  color: white;
+  border-width:5px;
+  border-style:double;
+}
+
+.login-box {
+  margin-top: -20px;
+}
