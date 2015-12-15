@@ -26,14 +26,14 @@
       <!-- content push wrapper -->
       <div class="st-pusher">
 
-        <nav class="st-menu st-effect-7" id="menu-1" ng-controller="NewsController as news">
+        <nav class="st-menu st-effect-7" id="menu-1" ng-controller="CategoriesController as categories">
           <!-- sidebar content -->
           <h2 class="">Categories <span class="pull-right glyphicon glyphicon-filter"></span></h2>
           <ul class="">
             <li><a class="text-right" id="closeMenu"><span class="glyphicon glyphicon-remove-circle"></span></a></li>
-            <li><a href="#/" ng-class="news.articles.currentCategory == null ? 'active' : ''" ng-click="news.getPage(1, null);core.closeMenu();">All</a></li>
-            <li ng-repeat="category in news.categories">
-              <a href="#/" ng-class="news.articles.currentCategory == category.id ? 'active' : ''" ng-click="news.getPage(1, category.id);core.closeMenu();">{{ category.name }}</a>
+            <li><a href="#/" ng-class="categories.categories.currentCategory == null ? 'active' : ''" ng-click="categories.getPage(1, null);core.closeMenu();">All</a></li>
+            <li ng-repeat="category in categories.categories.data">
+              <a href="#/" ng-class="categories.categories.currentCategory == category.id ? 'active' : ''" ng-click="categories.getPage(1, category.id);core.closeMenu();">{{ category.name }}</a>
             </li>
           </ul>
         </nav>
@@ -85,13 +85,14 @@
 
               <div class="container-fluid">
                 <!-- Main jumbotron for a primary marketing message or call to action -->
-                <div class="well red">
+                <div class="">
                   <h1>News listing</h1>
                   <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur nec congue erat. Sed quis eros libero, a euismod nisl. </p>
                   <div id="st-trigger-effects" class="column">
                     <button class="btn btn-success" data-effect="st-effect-7">Categories  <span class="glyphicon glyphicon-filter"></span></button>
                   </div>
                 </div>
+                <hr>
 
                 <!-- angular templating -->
                 <!-- this is where content will be injected -->
@@ -141,6 +142,7 @@
     <script src="js/NewsService.js"></script>
     <script src="js/CoreController.js"></script>
     <script src="js/NewsController.js"></script>
+    <script src="js/CategoriesController.js"></script>
     <script src="js/ArticleController.js"></script>
 
     <script src="js/main.js"></script>

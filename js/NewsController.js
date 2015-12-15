@@ -12,7 +12,6 @@
       var vm = this;
       vm.title = 'NewsController';
       vm.articles = NewsService.articles;
-      vm.categories = NewsService.categories;
       vm.getPage = NewsService.getPage;
 
       activate();

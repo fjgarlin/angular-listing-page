@@ -23,11 +23,11 @@
       <div class="image-wrapper"><img class="cover-image" ng-src="{{ article.img }}" /></div>
       <h2>{{ article.title }}</h2>
       <p>
-        {{ article.body | limitTo: 150 }}{{article.body.length > 150 ? '...' : ''}}
+        {{ article.body | limitTo: 150 }}{{ article.body.length > 150 ? '...' : '' }}
       </p>
       <p>
-        <button class="details-button btn btn-success" role="button"><span class="glyphicon glyphicon-thumbs-up"></span> <span class="badge">42</span></button>
-        <button class="details-button btn btn-danger pull-right" role="button"><span class="glyphicon glyphicon-thumbs-down"></span> <span class="badge">2</span></button>
+        <button class="details-button btn btn-success" role="button"><span class="glyphicon glyphicon-thumbs-up"></span> <span class="badge">{{ article.likes }}</span></button>
+        <button class="details-button btn btn-danger pull-right" role="button"><span class="glyphicon glyphicon-thumbs-down"></span> <span class="badge">{{ article.dislikes }}</span></button>
       </p>
     </a>
   </div>

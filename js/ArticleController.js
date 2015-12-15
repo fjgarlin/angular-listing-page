@@ -16,6 +16,8 @@
       vm.id = $routeParams.id;
       vm.article = NewsService.article;
       vm.getArticle = getArticle;
+      vm.like = like;
+      vm.dislike = dislike;
 
       activate();
       //*************************************************
@@ -29,10 +31,11 @@
       }
 
       function like() {
-        NewsService.likeArticle(id);
+        NewsService.likeArticle(vm.id);
       }
+
       function dislike() {
-        NewsService.dislikeArticle(id);
+        NewsService.dislikeArticle(vm.id);
       }
     }
 })();
